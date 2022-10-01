@@ -33,19 +33,17 @@ public class ConstructorFunc {
         privateConstructor.setAccessible(true);
         william = privateConstructor.newInstance("", 0, LocalDate.now());
 
+        // 描述此 Constructor 的字符串，其中包括类型参数 private bean.William(java.lang.String,java.lang.Integer,java.time.LocalDate)
+        System.out.println(privateConstructor.toGenericString());
+
         // Constructor 对象表示的构造方法的类,其实就是返回真实类型（不包含参数）
         Class<William> declaringClass = privateConstructor.getDeclaringClass();
 
-        // 构造函数的形参类型
+        // 构造函数的形参类型，返回的是 Class 类型
         Class<?>[] parameterTypes = privateConstructor.getParameterTypes();
-        for (Class<?> parameterType : parameterTypes) {
-            System.out.println(parameterType.getName());
-        }
 
+        // 构造函数的形参类型，返回的是 Type 类型（包含 Class、TypeVariable、WildcardType、ParameterizedType、GenericArrayType）
         Type[] genericParameterTypes = privateConstructor.getGenericParameterTypes();
-        for (Type genericParameterType : genericParameterTypes) {
-            System.out.println(genericParameterType.getTypeName());
-        }
 
         // 获取所有构造方法（public，不包含 private）
         Constructor<?>[] constructors = Constant.williamClass.getConstructors();

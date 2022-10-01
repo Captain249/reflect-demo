@@ -9,6 +9,9 @@ import java.time.LocalDate;
  */
 public class William extends User implements Worker {
 
+    public String publicName;
+    private String privateName;
+
     public William() {
     }
 

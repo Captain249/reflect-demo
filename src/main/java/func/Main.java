@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class Main {
 
-    public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        ConstructorFunc.getConstructor();
+    public static void main(String[] args) throws Exception {
+        FieldFunc.getFild();
     }
 }
