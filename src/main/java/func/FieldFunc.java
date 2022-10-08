@@ -1,6 +1,7 @@
 package func;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 
 import bean.William;
 import common.Constant;
@@ -26,6 +27,10 @@ public class FieldFunc {
         // 获取所有 field（包含 private，不包含继承字段）
         Field[] declaredFields = Constant.williamClass.getDeclaredFields();
 
+    }
+
+    public static void setField() throws NoSuchFieldException, InstantiationException, IllegalAccessException {
+
         // 设置 public Field 值
         William william = Constant.williamClass.newInstance();
         Field publicNameField = Constant.williamClass.getField("publicName");
@@ -36,12 +41,19 @@ public class FieldFunc {
         privateNameField.setAccessible(true);
         privateNameField.set(william, "william");
 
+    }
+
+    public static void otherFunc() throws NoSuchFieldException {
+        Field privateNameField = Constant.williamClass.getDeclaredField("privateName");
+
         // 返回 field 属于哪个类 class bean.William
         Class<?> declaringClass = privateNameField.getDeclaringClass();
 
-        // 返回 field 的类型 class java.lang.String
+        // 返回普通 field 的类型 class java.lang.String
         Class<?> type = privateNameField.getType();
-        System.out.println(declaringClass);
+
+        // 返回泛型 field 的类型 T
+        Type genericType = privateNameField.getGenericType();
     }
 
 }

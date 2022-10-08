@@ -31,7 +31,7 @@ public class MethodFunc {
     }
 
     // 调用方法
-    public static void invoke() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    public static void invokeMethod() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         Method getDate = Constant.userClazz.getMethod("getDate");
         Method setData = Constant.userClazz.getMethod("setData", Object.class);
         // 普通返回
