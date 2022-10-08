@@ -7,7 +7,7 @@ package bean;
  */
 public interface Worker {
 
-    void work();
+    void work(String msg);
 
     boolean isLeader();
 

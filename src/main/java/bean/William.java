@@ -24,12 +24,16 @@ public class William extends User implements Worker {
     }
 
     @Override
-    public void work() {
-        System.out.println("I'm working");
+    public void work(String msg) {
+        System.out.println(msg);
     }
 
     @Override
     public boolean isLeader() {
         return true;
+    }
+
+    private void privateMethod(String msg) {
+        System.out.println(msg);
     }
 }

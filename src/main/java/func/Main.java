@@ -1,6 +1,5 @@
 package func;
 
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author shenzhuojun
@@ -10,6 +9,6 @@ import java.lang.reflect.InvocationTargetException;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        FieldFunc.getFild();
+        MethodFunc.invoke();
     }
 }
