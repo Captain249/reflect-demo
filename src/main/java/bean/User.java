@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * @version 1.0 2022/10/1 10:16 上午
  * @Description
  */
-public class User extends GenericiBean<User> {
+public class User extends Genericity<User> {
 
     private String name;
     private Integer age;

@@ -9,6 +9,6 @@ package func;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        MethodFunc.invoke();
+        ClazzFunc.getGenericity_step_04();
     }
 }

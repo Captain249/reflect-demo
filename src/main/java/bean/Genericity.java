@@ -5,7 +5,7 @@ package bean;
  * @version 1.0 2022/10/8 1:57 下午
  * @Description
  */
-class GenericiBean<T> {
+public class Genericity<T> {
 
     public T data;
 

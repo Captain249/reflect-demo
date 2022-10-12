@@ -1,5 +1,9 @@
 package func;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 import bean.*;
 import bean.William;
 import common.Constant;
@@ -49,5 +53,38 @@ public class ClazzFunc {
         Class<? super William> superclass = Constant.williamClass.getSuperclass();
         System.out.println(superclass.getSimpleName());
     }
+
+    static void getGenericity_step_01() throws Exception {
+        // 先按正常的脑回路，试下拿到的泛型，发现屁都拿不到。
+        Genericity<String> stringGenericity = new Genericity<>();
+        Class<? extends Genericity> clazz = stringGenericity.getClass();
+        Field dataField = clazz.getDeclaredField("data");
+        System.out.println(dataField);
+        // public java.lang.Object bean.Genericity.data
+        System.out.println(dataField.getType());
+        // class java.lang.Object
+        System.out.println(dataField.getGenericType());
+        // T
+    }
+
+    static void getGenericity_step_02() {
+        ChildGenericity childGenericity = new ChildGenericity();
+        Class<? extends ChildGenericity> clazz = childGenericity.getClass();
+        ParameterizedType genericSuperclass = (ParameterizedType) clazz.getGenericSuperclass();
+        Type[] actualTypeArguments = genericSuperclass.getActualTypeArguments();
+        for (Type actualTypeArgument : actualTypeArguments) {
+            System.out.println(actualTypeArgument);
+        }
+    }
+
+    static void getGenericity_step_03() {
+        System.out.println(new Genericity<String>().getClass().getGenericSuperclass());
+        System.out.println(new Genericity<String>() {}.getClass().getGenericSuperclass());
+    }
+
+    static void getGenericity_step_04() {
+        new TypeToken<Genericity<String>>() {}.parseGenericInfo();
+    }
+
 
 }
